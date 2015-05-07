@@ -8,13 +8,11 @@
 
     console.log(postRef.key());
 
-    postRef.on('value', function(snapshot){
-      console.log(snapshot.val());
-    }, function (errorObject) {
-      console.log("The read operation failed: " + errorObject.code);
-    });
-
-
+postRef.on('value', function(snapshot){
+  console.log(snapshot.val());
+}, function (errorObject) {
+  console.log("The read operation failed: " + errorObject.code);
+});
 
 // API Key: Ao2AL3xLQ9GAam03ar2oyz
 //{"url":"https://www.filepicker.io/api/file/bo79ExERKmz6gv8kOPNU",

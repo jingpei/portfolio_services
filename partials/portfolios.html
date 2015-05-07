@@ -25,12 +25,10 @@
         <input name="title" type="text" placeholder="title" ng-required="true" ng-model="adding_portfolio.title" />
         <p class="error" ng-show="add_portfolio.title.$invalid && add_portfolio.title.$touched">Must enter a title.</p>
 
-
         <input name="name" type="text" placeholder="unique name" ng-required="true" ng-model="adding_portfolio.name" />
         <p class="error" ng-show="add_portfolio.name.$invalid && add_portfolio.name.$touched">Must enter a name.</p>
 
-<input type="file" required="true" id="file-upload" ng-click="addImage()" />
-
+        <input type="file" required="true" id="file-upload" ng-click="addImage()" />
 
         <textarea name="description" placeholder="description" ng-required="true" ng-model="adding_portfolio.description"></textarea>
         <p class="error" ng-show="add_portfolio.description.$invalid && add_portfolio.description.$touched">Must enter a description.</p>
