@@ -10,7 +10,14 @@
         <span class="title" ng-bind="portfolio.title"></span>
       </a>
 
-      <span class="date" ng-bind="portfolio.date"></span>
+      <span class="date" ng-bind="portfolio.date| date:'yyyy-MM-dd'"></span>
+
+      
+
+      <span class="date" ng-bind="creationDate"></span>
+
+
+
       <div class="description" ng-bind="portfolio.description"></div>
     </header>
   </article>

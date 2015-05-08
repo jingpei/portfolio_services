@@ -346,6 +346,7 @@ ul {
   .content .portfolio-item {
     background: #e1eef3;
     width: 30%;
+    height: 500px;
     float: left; }
     .content .portfolio-item .portfolio-info {
       min-height: 100%;

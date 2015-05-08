@@ -1,4 +1,4 @@
-  portfolioApp.controller("PortfolioListController", function($scope, FIREBASE_URL, $firebaseArray, $firebaseObject){
+  portfolioApp.controller("PortfolioListController", function($scope, PortService, FIREBASE_URL, $firebaseArray, $firebaseObject){
 
     $scope.portfolios = [];
 
@@ -6,13 +6,26 @@
     var postRef = ref.child('portfolios');
     $scope.portfolios = $firebaseArray(postRef);
 
-    console.log(postRef.key());
+    // console.log(postRef.key());
 
-postRef.on('value', function(snapshot){
-  console.log(snapshot.val());
+    var portSnapshot;
+    var date;
+
+postRef.once('value', function(dataSnapshot){
+  portSnapshot = dataSnapshot;
+  var portDate = portSnapshot.child('-JoBpco9MboOJKlK_31R').child('creationDate')
+  // console.log("Portdate is " + portDate.val());
+  var portdateVal = portDate.val()  
+  date = new Date(portdateVal) 
+  // console.log("JS date is " + date)
+  $scope.creationDate = PortService.formatDate(date);
+  console.log($scope.creationDate)
+  // console.log(portSnapshot.val());
 }, function (errorObject) {
   console.log("The read operation failed: " + errorObject.code);
 });
+
+
 
 // API Key: Ao2AL3xLQ9GAam03ar2oyz
 //{"url":"https://www.filepicker.io/api/file/bo79ExERKmz6gv8kOPNU",
@@ -25,7 +38,7 @@ var imageUpped;
 
 $scope.addImage = function( new_image ){
 
-filepicker.setKey("Ao2AL3xLQ9GAam03ar2oyz");
+filepicker.setKey("AOyREerJIT8iQwL6JX9cWz");
 
 filepicker.pick(
   {
@@ -51,7 +64,7 @@ filepicker.pick(
 
       pushRef.push({
         name: new_portfolio.name,
-        creationDate: Firebase.ServerValue.TIMESTAMP,
+        date: Firebase.ServerValue.TIMESTAMP,
         title: new_portfolio.title,
         description: new_portfolio.description,
         imageurl: imageUpped 

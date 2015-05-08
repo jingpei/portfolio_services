@@ -14,12 +14,13 @@
     <input ng-model="searchFor">
   </div>
 
-  <nav class="menus">
+  <nav class="menus" ng-controller="PortfolioListController">
     <h3 class="work">Work</h3>
     <ul>
-      <li><a href="#" class="current-menu-item">Call of Booty</a></li>
+      <li ng-repeat="portfolio in portfolios"><a href="index.html#/portfolio/{{portfolio.name}}" ng-class="current-menu-item">{{portfolio.title}}</a>
+<!--       <li><a href="#" class="current-menu-item">Call of Booty</a></li>
       <li><a href="#">The Sack of the Innocents</a></li>
-      <li><a href="#">Pipe and First Mate</a></li>
+      <li><a href="#">Pipe and First Mate</a></li> -->
     </ul>
 
     <h3 class="about">About</h3>
